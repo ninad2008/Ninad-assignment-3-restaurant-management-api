@@ -1,8 +1,10 @@
 const mongoose = require('mongoose');
 
+const MONGO_URI = process.env.MONGO_URI || 'mongodb+srv://devdharesulochana_db_user:KVRxWMW8Ec5ZY3My@project.lsc4rnz.mongodb.net/restaurantDB?retryWrites=true&w=majority';
+
 const connectDB = async () => {
   try {
-    await mongoose.connect('mongodb://127.0.0.1:27017/restaurantDB', { serverSelectionTimeoutMS: 2000 });
+    await mongoose.connect(MONGO_URI, { serverSelectionTimeoutMS: 5000 });
   } catch (err) {
     try {
       const { MongoMemoryServer } = require('mongodb-memory-server');
